@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Recuperação de Senha</title>
-  <!-- Importação da fonte Open Sans do Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,7 +12,7 @@
     }
 
     body {
-      background-color: rgb(196, 201, 205);
+      background-color: rgb(54,61,77);
       font-family: 'Open Sans', sans-serif;
       display: flex;
       flex-direction: column;
@@ -24,21 +23,21 @@
 
     #section1 {
       text-align: center;
-      margin: 1rem 0;
+      margin: -1rem 0;
     }
 
     #imglogo {
       width: 100%;
       max-width: 350px;
       height: auto;
+      transform: translateX(-25px)
     }
 
     #section2 {
-      background-color: rgba(164, 162, 162, 0.25);
-      filter: blur(82);
+      background-color: rgb(23, 23, 23);
       box-shadow: -20px 20px 25px black;
       border-radius: 30px;
-      border: 3px solid black;
+      border: 1px solid rgb(255, 255, 255);
       padding: 2rem;
       width: 90%;
       max-width: 800px;
@@ -53,13 +52,15 @@
       font-weight: 900;
       text-align: center;
       margin-bottom: 1.5rem;
+      color:white;
     }
 
     .divscentrais {
-      width: 100%;
-      margin-bottom: 1.5rem;
-      font-weight: bold;
-      font-size: 1rem;
+        color: white;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+        font-size: 1rem;
     }
 
     .input-container {
@@ -86,47 +87,46 @@
       cursor: pointer;
     }
 
-    #innersection {
+    .botoes-container {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
+      justify-content: space-between;
       width: 100%;
+      margin-top: 1.5rem;
+      gap: 1rem;
+      padding: 0 0.5rem;
     }
 
     .botoes {
-      width: 100%;
-      max-width: 250px;
+      flex: 1;
+      max-width: 45%;
       padding: 0.8rem;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 30px;
-      border: none;
       cursor: pointer;
     }
 
     #botaorec {
-      background: #222;
-      color: white;
-      border: 3px solid white;
+      background: rgb(178, 235, 0);
+      color: black;
+      border: 3px solid rgb(255, 255, 255) ; 
       border-radius: 50px 10px;
     }
 
     #botaocan {
-      background: #FFF;
+      background: rgb(255, 255, 255);
       color: black;
-      border: 3px solid #222;
+      border: 3px solid rgb(178, 235, 0);
       border-radius: 40px 10px;
     }
 
     .footercontainer {
-      background-color: rgb(164, 162, 162);
+      background-color: rgb(23, 23, 23);
       text-align: center;
       width: 100%;
       padding: 1rem 0;
       font-size: 1rem;
+      color: white;
       font-family: "Century Gothic", sans-serif;
       position: fixed;
       bottom: 0;
@@ -144,52 +144,52 @@
       .botoes {
         max-width: 100%;
       }
+
+      .botoes-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <section id="section1">
     <div id="divlogo">
-      <img id="imglogo" src="https://i.postimg.cc/N0Pv342c/Rectangle-59.png" alt="Logo">
+      <img id="imglogo" src="DoTBranco.png" alt="Logo">
     </div>
   </section>
 
   <section id="section2">
-    <div class="div1sec2"><center><h2>Recupere os seus dados:</h2></center></div>
+    <div class="div1sec2"><h2>Recupere a sua senha:</h2></div>
 
     <div class="divscentrais">
-      <label for="cpf">CPF:</label><br>
+      <label for="novaSenha">Nova senha:</label><br>
       <div class="input-container">
-        <input placeholder="Digite seu CPF" class="inputstyle" type="text" id="cpf">
-        <img class="olho" src="https://cdn-icons-png.flaticon.com/512/709/709612.png" onclick="toggleCPF('cpf')">
+        <input placeholder="Nova Senha" class="inputstyle" type="password" id="novaSenha">
+        <img class="olho" src="https://cdn-icons-png.flaticon.com/512/709/709612.png" onclick="toggleSenha('novaSenha')">
       </div>
     </div>
 
     <div class="divscentrais">
-      <label for="matricula">Matrícula:</label><br>
+      <label for="confirmaSenha">Confirme sua senha:</label><br>
       <div class="input-container">
-        <input placeholder="Digite sua Matrícula" class="inputstyle" type="text" id="matricula">
-        <img class="olho" src="https://cdn-icons-png.flaticon.com/512/709/709612.png" onclick="toggleMatricula('matricula')">
+        <input placeholder="Repita a Senha" class="inputstyle" type="password" id="confirmaSenha">
+        <img class="olho" src="https://cdn-icons-png.flaticon.com/512/709/709612.png" onclick="toggleSenha('confirmaSenha')">
       </div>
     </div>
 
-    <section id="innersection">
-      <input class="botoes" id="botaorec" value="Confirmar" type="button">
-      <input class="botoes" id="botaocan" value="Cancelar" type="button">
-    </section>
+    <div class="botoes-container">
+      <button class="botoes" id="botaocan">CANCELAR</button>
+      <button class="botoes" id="botaorec">CONFIRMAR</button>
+    </div>
   </section>
 
   <footer class="footercontainer">Arteiros &copy; 2025</footer>
 
   <script>
-    function toggleCPF(idCampo) {
+    function toggleSenha(idCampo) {
       const input = document.getElementById(idCampo);
-      input.type = input.type === "text" ? "password" : "text";
-    }
-
-    function toggleMatricula(idCampo) {
-      const input = document.getElementById(idCampo);
-      input.type = input.type === "text" ? "password" : "text";
+      input.type = input.type === "password" ? "text" : "password";
     }
   </script>
 </body>
